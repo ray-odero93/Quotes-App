@@ -3,31 +3,35 @@ import { Quote } from '../quote'
 @Component({
   selector: 'app-quote',
   templateUrl: './quote.component.html',
-  styleUrls: ['./quote.component.css']
+  styleUrls: ['./quote.component.css'],
 })
 export class QuoteComponent implements OnInit {
   quotes: Quote[] = [
     {
-      userName: "Ray",
-      author: "Mahatma Gandhi",
-      saying: "Be the change you wish to see in the world.",
-      upvotes: 0,
-      downvotes: 0,
-      postDate: new Date
+      name: 'Ray',
+      author: 'Mahatma Gandhi',
+      saying: 'Be the change you wish to see in the world.',
+      description: [1, 1]
     },
     {
-      userName: "Purity",
-      author: "Oscar Wilde",
-      saying: "Be yourself, everyone else is taken.",
-      upvotes: 0,
-      downvotes: 0,
-      postDate:new Date
+      name: 'Purity',
+      author: 'Oscar Wilde',
+      saying: 'Be yourself, everyone else is taken.',
+      description: [0, 0]
+    },
+    {
+      name: 'Cherry',
+      author: 'Pablo PIcasso',
+      saying: 'Everything you can imagine is real.',
+      description: [0, 0]
     }
-  ]
+  ];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  toggleDetails(index:number) {
+    this.quotes[index].showDescription = !this.quotes[index].showDescription;
   }
 
+  constructor() {}
+
+  ngOnInit(): void {}
 }
